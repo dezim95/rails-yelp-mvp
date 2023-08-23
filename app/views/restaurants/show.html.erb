@@ -1,0 +1,8 @@
+<!-- app/views/restaurants/show.html.erb -->
+
+<h1><%= @restaurant.name %></h1>
+<!-- Display other details of the restaurant -->
+<h2><%= @restaurant.category %></h2>
+<p><%= @restaurant.address %></p>
+<p><%= @restaurant.phone_number %></p>
+<%= link_to 'Wriite a Review', new_review_path(restaurant_id: @restaurant.id), class: 'btn btn-primary' %>

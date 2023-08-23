@@ -1,0 +1,23 @@
+<%= simple_form_for(@restaurant) do |form| %>
+  <%= form.input :name, label: 'Name', input_html: { class: 'form-control' } %>
+
+  <%= form.input :category, label: 'Category', input_html: { class: 'form-control' } %>
+
+  <%= form.input :address, label: 'Address', input_html: { class: 'form-control' } %>
+
+  <%= form.input :phone_number, label: 'Phone Number', input_html: { class: 'form-control' } %>
+
+  <div class="actions">
+    <%= form.button :submit, 'Submit', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<%= simple_form_for([@restaurant, @review], url: create_review_path(@restaurant)) do |form| %>
+  <%= form.input :rating, label: 'Rating (1-5)', collection: 1..5, include_blank: false %>
+  <%= form.input :content, label: 'Review content', as: :text, input_html: { rows: 4 } %>
+
+  <!-- Review Form Submit Button -->
+  <div class="actions">
+    <%= form.button :submit, 'Submit Review', class: 'btn btn-primary' %>
+  </div>
+<% end %>
